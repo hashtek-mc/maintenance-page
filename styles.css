@@ -3,52 +3,71 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* Custom Fonts */
-@font-face {
+  }
+  
+  /* Custom Minecraft Font */
+  @font-face {
     font-family: 'Minecraft';
     src: url('https://fonts.cdnfonts.com/s/36662/Minecraft.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-}
-
-/* Global Styles */
-body {
+  }
+  
+  /* Global Styles */
+  body {
     font-family: 'Inter', sans-serif;
     background-color: #1a1c2c;
     color: #ffffff;
     overflow-x: hidden;
     min-height: 100vh;
-}
-
-/* Particles Background */
-#particles-js {
+  }
+  
+  /* Star Background */
+  .stars {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjlCOUU3RTkwQjY4MTFFODlDRDhDNDUyODk0MTFENTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjlCOUU3RUEwQjY4MTFFODlDRDhDNDUyODk0MTFENTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCOUI5RTdFNzBCNjgxMUU4OUNEOEN0NTI4OTQxMUQ1NiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCOUI5RTdFODBCNjgxMUU4OUNEOEN0NTI4OTQxMUQ1NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqOBEY4AAABKSURBVHjaYvz//z8DMmBhYWEA0vxQNgOyGFwBExYFIAW/gPg/I5JidB4TQxsAKUBzCq7QgKoGQwGGPcSogXsbpAabm2mQmwACDACI+Q0G74j0+AAAAABJRU5ErkJggg==');
     z-index: -1;
-}
-
-/* Container */
-.container {
+  }
+  
+  .twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDkzMDA3NjQwQjZCMTFFODlDRDhDNDUyODk0MTFENTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDkzMDA3NjUwQjZCMTFFODlDRDhDNDUyODk0MTFENTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowOTMwMDc2MjBCNkIxMUU4OUNEOEN0NTI4OTQxMUQ1NiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowOTMwMDc2MzBCNkIxMUU4OUNEOEN0NTI4OTQxMUQ1NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgSq05EAAAF+SURBVHja7N3BbQJBEEVRMAQiMJLEEDAEV3bEhpBgCISAjQDBZoBD8HYOG/DuHOzVe9L/n8oztFRXGWM8AMd5UA8gCJAgQBAgQYAEARIESBAgQYAgQIIACQIkCJAgQIIACQIEARIESBAgQYAEARIESBAgCJAgQIIACQIkCJAgQIIAQYAEARIESBAgQYAEAb7V9C/fm6bpaTm/L+f58n12uY522VfLuVvO+y9/M8bgtft+V9cvIMvl6XIfl2dZjNfL7zrDvayby+0e1np2sxjzeJhBpoMa83LkS3iJW1QvCJAgQIIACQIkCJAgQIIAQYAEARIESBAgQYAEARIESBAgCJAgQIIACQIkCJAgQIIAudf7jl4sTq9z+7VOizL0Dvlc4iwR9PTOBmL+8GESeo1x9r0F5Auw684Gcj6QfY9PV3fIIRK0qvVeP+5evZe17+o5Vv39eL2XF/UXGPshggAJAiQIkCBAgQIIACQIEARIECBBgAQBEgRIECBBgCBAggC5VT0EGABtrDnYALfT+wAAAABJRU5ErkJggg==');
+    opacity: 0.3;
+    animation: twinkle 200s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes twinkle {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+  }
+  
+  /* Container */
+  .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    position: relative;
     z-index: 1;
-}
-
-/* Maintenance Badge */
-.maintenance-badge {
+  }
+  
+  /* Maintenance Badge */
+  .maintenance-badge {
+    display: inline-block;
     margin-bottom: 1.5rem;
     padding: 0.5rem 1rem;
     background-color: rgba(255, 255, 255, 0.1);
@@ -61,59 +80,63 @@ body {
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.8);
     animation: pulse 3s ease-in-out infinite;
-}
-
-/* Title */
-.title {
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+  
+  /* Title */
+  .title {
     font-family: 'Minecraft', monospace;
     font-size: 2.5rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     text-align: center;
-}
-
-/* Highlight */
-.highlight {
-    color: #0cead9; /* New color */
-}
-
-/* Description */
-.description {
+  }
+  
+  .highlight {
+    color: #5ab552; /* Minecraft green */
+  }
+  
+  /* Description */
+  .description {
     max-width: 600px;
     margin-bottom: 3rem;
     text-align: center;
     font-size: 1.125rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
-}
-
-/* Countdown */
-.countdown {
+  }
+  
+  /* Countdown */
+  .countdown {
     margin-bottom: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.countdown-title {
+  }
+  
+  .countdown-title {
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.9);
-}
-
-.countdown-container {
+  }
+  
+  .countdown-container {
     display: flex;
     gap: 1rem;
-}
-
-.countdown-item {
+  }
+  
+  .countdown-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.countdown-digit {
+  }
+  
+  .countdown-digit {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -127,74 +150,123 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
-}
-
-/* Social Buttons */
-.social-links {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .countdown-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Social Buttons */
+  .social-links {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 3rem;
     justify-content: center;
-}
-
-.social-button {
+  }
+  
+  .social-button {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 600;
-    transition: all 0 .2s ease;
+    transition: all 0.2s ease;
     text-decoration: none;
     min-width: 220px;
     justify-content: center;
-}
-
-.discord {
-    background-color: #3acadf; /* New color */
+  }
+  
+  .social-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .discord {
+    background-color: #5865F2;
     color: white;
-}
-
-.discord:hover {
-    background-color: #2a9bd5; /* Darker shade */
-}
-
-.github {
-    background-color: #5c3a92; /* New color */
+  }
+  
+  .discord:hover {
+    background-color: #4752c4;
+  }
+  
+  .github {
+    background-color: #24292e;
     color: white;
-}
-
-.github:hover {
-    background-color: #4b2b7a; /* Darker shade */
-}
-
-/* Footer */
-.footer {
+  }
+  
+  .github:hover {
+    background-color: #000000;
+  }
+  
+ 
+  /* Footer */
+  .footer {
     margin-top: auto;
     text-align: center;
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.6);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
     .title {
-        font-size: 2rem;
+      font-size: 2rem;
     }
-}
-
-@media (max-width: 480px) {
+    
+    .countdown-container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .social-links {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .update-item {
+      flex-direction: column;
+    }
+    
+    .update-date {
+      width: 100%;
+      margin-bottom: 0.25rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
     .container {
-        padding: 1rem;
+      padding: 1rem;
     }
+    
     .title {
-        font-size: 1.75rem;
+      font-size: 1.75rem;
     }
-}
-
-/* Keyframes */
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
-}
+    
+    .countdown-digit {
+      min-width: 50px;
+      font-size: 1.25rem;
+      padding: 0.75rem;
+    }
+    
+    .minecraft-blocks {
+      gap: 0.5rem;
+    }
+    
+    .block {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
